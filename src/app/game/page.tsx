@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 export default function GamePage() {
   const [shuffledValues, setShuffledValues] = useState<Value[]>([]);
   const [randomThreeValues, setRandomThreeValues] = useState<Value[]>([]);
+  const [shownKeys, setShownKeys] = useState<Set<number>>(new Set());
 
   const shuffleArray = (array: Value[]) => {
     const arr = [...array];
@@ -16,12 +17,16 @@ export default function GamePage() {
     return arr;
   };
 
-  const getRandomThreeValues = (pool: Value[]) => {
+  const getRandomThreeValues = (pool: Value[], shown: Set<number>) => {
+    // Filter out values that have already been shown
+    const unseenValues = pool.filter((value) => !shown.has(value.key));
+    const source = unseenValues.length >= 3 ? unseenValues : pool;
+
     const indices = new Set<number>();
-    while (indices.size < 3 && indices.size < pool.length) {
-      indices.add(Math.floor(Math.random() * pool.length));
+    while (indices.size < 3 && indices.size < source.length) {
+      indices.add(Math.floor(Math.random() * source.length));
     }
-    return [...indices].map((index) => pool[index]);
+    return [...indices].map((index) => source[index]);
   };
 
   const removeValueFromList = (value: Value, pool: Value[]) => {
@@ -30,9 +35,14 @@ export default function GamePage() {
 
   useEffect(() => {
     setShuffledValues(shuffleArray(valueList));
-    setRandomThreeValues(getRandomThreeValues(valueList));
+    const initialThreeValues = getRandomThreeValues(valueList, new Set());
+    const initialShownKeys = new Set<number>();
+    initialThreeValues.forEach((v) => initialShownKeys.add(v.key));
+    setShownKeys(initialShownKeys);
+    setRandomThreeValues(initialThreeValues);
   }, []);
 
+  // This is just for debugging purposes
   useEffect(() => {
     console.log(shuffledValues);
     console.log(randomThreeValues);
@@ -52,8 +62,16 @@ export default function GamePage() {
                     value,
                     shuffledValues
                   );
+                  const nextThreeValues = getRandomThreeValues(
+                    updatedValues,
+                    shownKeys
+                  );
+                  const newShownKeys = new Set(shownKeys);
+                  nextThreeValues.forEach((v) => newShownKeys.add(v.key));
+
                   setShuffledValues(updatedValues);
-                  setRandomThreeValues(getRandomThreeValues(updatedValues));
+                  setRandomThreeValues(nextThreeValues);
+                  setShownKeys(newShownKeys);
                 }}
                 className="border-2 border-gray-300 rounded-lg p-4 m-2 cursor-pointer hover:bg-gray-100 transition duration-200 ease-in-out"
               >
