@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting - Priorities Sorting Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .value-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .value-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="bg-white border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex items-center">
+              <img src="/globe.svg" alt="Logo" class="h-8 w-8" />
+              <span class="ml-2 text-xl font-bold text-gray-900"
+                >Priorities Sorting</span
+              >
+            </div>
+            <div class="flex items-center">
+              <button class="bg-gray-100 p-2 rounded-full text-gray-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Progress bar -->
+      <div class="bg-white shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+          <div class="flex items-center space-x-4">
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-blue-600 h-2.5 rounded-full"
+                style="width: 65%"
+              ></div>
+            </div>
+            <span class="text-sm font-medium text-gray-500">Step 3 of 4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <main class="flex-grow">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="max-w-3xl mx-auto">
+            <div class="mb-8 text-center">
+              <h1 class="text-3xl font-bold text-gray-900 mb-4">
+                Which value is least important to you?
+              </h1>
+              <p class="text-gray-600">
+                Choose the value that is
+                <span class="font-semibold">least relevant</span> to your
+                priorities for the next 6-12 months.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+              <div class="p-6">
+                <!-- Status display -->
+                <div class="mb-8">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm text-gray-500">Round:</span>
+                    <span class="text-sm font-medium text-gray-900"
+                      >14 of 35</span
+                    >
+                  </div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm text-gray-500">Values remaining:</span>
+                    <span class="text-sm font-medium text-gray-900">26</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      class="bg-blue-600 h-2 rounded-full"
+                      style="width: 35%"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- Value cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <div
+                    class="value-card border border-gray-200 rounded-xl p-6 text-center bg-white cursor-pointer hover:border-red-300"
+                  >
+                    <div
+                      class="h-14 w-14 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mx-auto mb-4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                      Patience
+                    </h3>
+                    <p class="text-gray-500 text-sm">
+                      The capacity to accept delay, trouble, or suffering
+                      without getting angry or upset
+                    </p>
+                  </div>
+
+                  <div
+                    class="value-card border border-gray-200 rounded-xl p-6 text-center bg-white cursor-pointer hover:border-red-300"
+                  >
+                    <div
+                      class="h-14 w-14 bg-green-100 rounded-full flex items-center justify-center text-green-600 mx-auto mb-4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                      Innovation
+                    </h3>
+                    <p class="text-gray-500 text-sm">
+                      Creating new ideas, methods, or solutions to drive
+                      positive change
+                    </p>
+                  </div>
+
+                  <div
+                    class="value-card border border-gray-200 rounded-xl p-6 text-center bg-white cursor-pointer hover:border-red-300"
+                  >
+                    <div
+                      class="h-14 w-14 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mx-auto mb-4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                      Community
+                    </h3>
+                    <p class="text-gray-500 text-sm">
+                      A sense of fellowship with others through shared
+                      attitudes, interests, and goals
+                    </p>
+                  </div>
+                </div>
+
+                <div class="text-center text-sm text-gray-500 mb-4">
+                  <p>
+                    Click on the value that is
+                    <span class="font-semibold">least important</span> to you
+                    right now
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Already eliminated values -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div class="p-4 bg-gray-50 border-b border-gray-200">
+                <h3 class="text-sm font-medium text-gray-700">
+                  Values You've Eliminated
+                </h3>
+              </div>
+              <div class="p-4">
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Adventure</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Wealth</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Recognition</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Tradition</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Influence</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Elegance</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Fame</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Curiosity</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Challenge</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Power</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Diversity</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Status</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >Beauty</span
+                  >
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                    >+1 more</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 flex justify-between items-center">
+              <button
+                class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="mr-2 h-5 w-5 text-gray-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Need a hint?
+              </button>
+              <a href="results.html" class="text-gray-600 text-sm underline"
+                >Skip to results (demo only)</a
+              >
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div class="flex justify-between items-center">
+            <p class="text-gray-500 text-sm">
+              © 2023 Priorities Sorting Challenge
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Privacy</span>
+                <span class="text-sm">Privacy Policy</span>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Terms</span>
+                <span class="text-sm">Terms of Service</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

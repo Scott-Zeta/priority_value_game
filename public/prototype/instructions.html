@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructions - Priorities Sorting Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="bg-white border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex items-center">
+              <img src="/globe.svg" alt="Logo" class="h-8 w-8" />
+              <span class="ml-2 text-xl font-bold text-gray-900"
+                >Priorities Sorting</span
+              >
+            </div>
+            <div class="flex items-center">
+              <button class="bg-gray-100 p-2 rounded-full text-gray-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Progress bar -->
+      <div class="bg-white shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+          <div class="flex items-center space-x-4">
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-blue-600 h-2.5 rounded-full"
+                style="width: 25%"
+              ></div>
+            </div>
+            <span class="text-sm font-medium text-gray-500">Step 1 of 4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <main class="flex-grow">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">How It Works</h1>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+              <div class="p-6">
+                <div class="flex mb-6">
+                  <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="text-xl font-semibold text-gray-900 mb-2">
+                      The Challenge
+                    </h2>
+                    <p class="text-gray-600">
+                      This activity helps you identify your top 5 personal
+                      values or priorities for the next 6–12 months through a
+                      process of elimination.
+                    </p>
+                  </div>
+                </div>
+
+                <ol class="space-y-10 mt-8">
+                  <li class="relative flex items-start">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white font-medium flex-shrink-0 mr-4"
+                    >
+                      1
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Initial Setup
+                      </h3>
+                      <p class="text-gray-600 mb-3">
+                        We start with a pool of 40 value words (like Integrity,
+                        Courage, Creativity, etc.).
+                      </p>
+                      <div
+                        class="bg-gray-50 p-3 rounded-lg flex flex-wrap gap-2"
+                      >
+                        <span
+                          class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
+                          >Integrity</span
+                        >
+                        <span
+                          class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
+                          >Courage</span
+                        >
+                        <span
+                          class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800"
+                          >Creativity</span
+                        >
+                        <span
+                          class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800"
+                          >+37 more</span
+                        >
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="relative flex items-start">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white font-medium flex-shrink-0 mr-4"
+                    >
+                      2
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Decision Rounds
+                      </h3>
+                      <p class="text-gray-600 mb-3">
+                        In each round, you'll see 3 randomly selected values.
+                        Your task is to choose the one that is
+                        <span class="font-semibold">least important</span> to
+                        you right now.
+                      </p>
+                      <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-center text-sm text-gray-500 mb-3">
+                          Example round:
+                        </p>
+                        <div class="grid grid-cols-3 gap-3">
+                          <div
+                            class="border border-gray-200 rounded-lg p-4 text-center bg-white hover:bg-gray-50"
+                          >
+                            <p class="font-medium text-gray-900">Growth</p>
+                          </div>
+                          <div
+                            class="border border-gray-200 rounded-lg p-4 text-center bg-white hover:bg-gray-50"
+                          >
+                            <p class="font-medium text-gray-900">Security</p>
+                          </div>
+                          <div
+                            class="border border-gray-200 rounded-lg p-4 text-center bg-white hover:bg-gray-50"
+                          >
+                            <p class="font-medium text-gray-900">Freedom</p>
+                          </div>
+                        </div>
+                        <p class="text-center mt-3 text-sm text-gray-500">
+                          Select the value that is
+                          <span class="font-semibold">least important</span> to
+                          you
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="relative flex items-start">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white font-medium flex-shrink-0 mr-4"
+                    >
+                      3
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Elimination Process
+                      </h3>
+                      <p class="text-gray-600 mb-3">
+                        Each time you select a value, it's removed from the
+                        pool. This continues until only 5 values remain – these
+                        are your top priorities.
+                      </p>
+                      <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="flex items-center justify-between mb-2">
+                          <span class="text-sm text-gray-500"
+                            >Values remaining:</span
+                          >
+                          <span class="text-sm font-medium text-gray-900"
+                            >35</span
+                          >
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                          <div
+                            class="bg-blue-600 h-2 rounded-full"
+                            style="width: 12.5%"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center mt-10">
+              <a
+                href="welcome.html"
+                class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="mr-2 h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Back
+              </a>
+              <a
+                href="sorting.html"
+                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Start Sorting
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="ml-2 h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div class="flex justify-between items-center">
+            <p class="text-gray-500 text-sm">
+              © 2023 Priorities Sorting Challenge
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Privacy</span>
+                <span class="text-sm">Privacy Policy</span>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Terms</span>
+                <span class="text-sm">Terms of Service</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

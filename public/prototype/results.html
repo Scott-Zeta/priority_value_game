@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results - Priorities Sorting Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .priority-card {
+        transition: transform 0.2s;
+      }
+      .priority-card:hover {
+        transform: translateY(-4px);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
+      .delay-5 {
+        animation-delay: 0.5s;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="bg-white border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex items-center">
+              <img src="/globe.svg" alt="Logo" class="h-8 w-8" />
+              <span class="ml-2 text-xl font-bold text-gray-900"
+                >Priorities Sorting</span
+              >
+            </div>
+            <div class="flex items-center">
+              <button class="bg-gray-100 p-2 rounded-full text-gray-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Progress bar -->
+      <div class="bg-white shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+          <div class="flex items-center space-x-4">
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div
+                class="bg-blue-600 h-2.5 rounded-full"
+                style="width: 100%"
+              ></div>
+            </div>
+            <span class="text-sm font-medium text-gray-500">Step 4 of 4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <main class="flex-grow">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="text-center mb-10">
+            <span
+              class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 mb-4"
+            >
+              <svg
+                class="-ml-1 mr-1.5 h-4 w-4 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Complete
+            </span>
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-4">
+              Your Top 5 Priorities
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              These are the values that matter most to you for the next 6-12
+              months.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-4xl mx-auto mb-12"
+          >
+            <!-- Priority 1 -->
+            <div
+              class="priority-card bg-white shadow-md rounded-xl overflow-hidden border-t-4 border-indigo-500 opacity-0 animate-fade-in delay-1"
+            >
+              <div class="p-6">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <span
+                      class="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 text-xl font-bold"
+                      >1</span
+                    >
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Growth</h3>
+                    <p class="text-sm text-gray-500">
+                      Continuous personal and professional development
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Priority 2 -->
+            <div
+              class="priority-card bg-white shadow-md rounded-xl overflow-hidden border-t-4 border-blue-500 opacity-0 animate-fade-in delay-2"
+            >
+              <div class="p-6">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <span
+                      class="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600 text-xl font-bold"
+                      >2</span
+                    >
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Balance
+                    </h3>
+                    <p class="text-sm text-gray-500">
+                      Harmony between different aspects of life
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Priority 3 -->
+            <div
+              class="priority-card bg-white shadow-md rounded-xl overflow-hidden border-t-4 border-green-500 opacity-0 animate-fade-in delay-3"
+            >
+              <div class="p-6">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <span
+                      class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 text-xl font-bold"
+                      >3</span
+                    >
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Freedom
+                    </h3>
+                    <p class="text-sm text-gray-500">
+                      Independence and autonomy in decisions
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Priority 4 -->
+            <div
+              class="priority-card bg-white shadow-md rounded-xl overflow-hidden border-t-4 border-yellow-500 opacity-0 animate-fade-in delay-4"
+            >
+              <div class="p-6">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <span
+                      class="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100 text-yellow-600 text-xl font-bold"
+                      >4</span
+                    >
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Health</h3>
+                    <p class="text-sm text-gray-500">
+                      Physical and mental well-being
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Priority 5 -->
+            <div
+              class="priority-card bg-white shadow-md rounded-xl overflow-hidden border-t-4 border-red-500 opacity-0 animate-fade-in delay-5"
+            >
+              <div class="p-6">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0">
+                    <span
+                      class="flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600 text-xl font-bold"
+                      >5</span
+                    >
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">
+                      Purpose
+                    </h3>
+                    <p class="text-sm text-gray-500">
+                      Meaning and direction in life
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reflection Section -->
+          <div
+            class="bg-white shadow-md rounded-xl overflow-hidden max-w-3xl mx-auto mb-10"
+          >
+            <div class="p-6">
+              <h2 class="text-xl font-semibold text-gray-900 mb-4">
+                Reflect on Your Results
+              </h2>
+              <p class="text-gray-600 mb-6">
+                Now that you know your top 5 priorities, take some time to
+                reflect on how they align with your current actions and
+                decisions.
+              </p>
+
+              <div class="bg-blue-50 rounded-xl p-5 mb-6">
+                <h3 class="text-lg font-medium text-blue-900 mb-2">
+                  Questions to Consider:
+                </h3>
+                <ul class="text-blue-800 space-y-2">
+                  <li class="flex items-start">
+                    <svg
+                      class="flex-shrink-0 h-5 w-5 text-blue-600 mt-0.5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span class="ml-2"
+                      >Are you spending enough time and energy on these
+                      priorities?</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="flex-shrink-0 h-5 w-5 text-blue-600 mt-0.5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span class="ml-2"
+                      >Do your current goals reflect these values?</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="flex-shrink-0 h-5 w-5 text-blue-600 mt-0.5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span class="ml-2"
+                      >What changes might you make to better honor these
+                      priorities?</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6">
+                <label
+                  for="notes"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Personal Notes (optional)</label
+                >
+                <textarea
+                  id="notes"
+                  rows="4"
+                  class="shadow-sm block w-full focus:ring-blue-500 focus:border-blue-500 sm:text-sm border border-gray-300 rounded-md p-3"
+                  placeholder="Write down your thoughts about these results..."
+                ></textarea>
+              </div>
+
+              <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button
+                  class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                    />
+                  </svg>
+                  Save Results
+                </button>
+                <button
+                  class="inline-flex items-center px-4 py-2 border border-gray-300 text-base font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                    />
+                  </svg>
+                  Share Results
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <a
+              href="welcome.html"
+              class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="mr-2 h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Start Over
+            </a>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div class="flex justify-between items-center">
+            <p class="text-gray-500 text-sm">
+              © 2023 Priorities Sorting Challenge
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Privacy</span>
+                <span class="text-sm">Privacy Policy</span>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Terms</span>
+                <span class="text-sm">Terms of Service</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
