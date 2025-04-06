@@ -9,6 +9,9 @@ export default function GamePage() {
   const [randomThreeValues, setRandomThreeValues] = useState<Value[]>([]);
   const [shownKeys, setShownKeys] = useState<Set<number>>(new Set());
 
+  const totalRounds = valueList.length - 5;
+  const currentRound = totalRounds - shuffledValues.length + 5;
+
   const shuffleArray = (array: Value[]) => {
     const arr = [...array];
     for (let i = arr.length - 1; i > 0; i--) {
@@ -50,54 +53,85 @@ export default function GamePage() {
   }, [shuffledValues, randomThreeValues]);
 
   return (
-    <>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {shuffledValues.length > 5 ? (
-        <>
-          <p>Pick a value you think is LEAST Important</p>
-          {randomThreeValues.map((value: Value) => {
-            return (
-              <ValueCard
-                key={value.key}
-                name={value.name}
-                description={value.description}
-                colorVariant={value.colour as ColourVariant}
-                icon={value.icon}
-                onClick={() => {
-                  const updatedValues = removeValueFromList(
-                    value,
-                    shuffledValues
-                  );
-                  const nextThreeValues = getRandomThreeValues(
-                    updatedValues,
-                    shownKeys
-                  );
-                  const newShownKeys = new Set(shownKeys);
-                  nextThreeValues.forEach((v) => newShownKeys.add(v.key));
+        <div className="max-w-3xl mx-auto">
+          <div className="mb-8 text-center">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              Which value is least important to you?
+            </h1>
+            <p className="text-gray-600">
+              Choose the value that is
+              <span className="font-semibold"> LEAST relevant</span> to your
+              priorities for the next 6-12 months.
+            </p>
+          </div>
+          <div className="bg-white rounded-xl shadow-md overflow-hidden mb-8 p-6 min-h-[60vh] sm:min-h-[50vh]">
+            <div className="flex items-center justify-between mb-8">
+              <span className="text-sm text-gray-500">Round:</span>
+              <span className="text-sm font-medium text-gray-900">
+                {currentRound} of {totalRounds}
+              </span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-6 mb-8">
+              {randomThreeValues.map((value: Value) => {
+                return (
+                  <ValueCard
+                    key={value.key}
+                    name={value.name}
+                    description={value.description}
+                    colorVariant={value.colour as ColourVariant}
+                    icon={value.icon}
+                    onClick={() => {
+                      const updatedValues = removeValueFromList(
+                        value,
+                        shuffledValues
+                      );
+                      const nextThreeValues = getRandomThreeValues(
+                        updatedValues,
+                        shownKeys
+                      );
+                      const newShownKeys = new Set(shownKeys);
+                      nextThreeValues.forEach((v) => newShownKeys.add(v.key));
 
-                  setShuffledValues(updatedValues);
-                  setRandomThreeValues(nextThreeValues);
-                  setShownKeys(newShownKeys);
-                }}
-              />
-            );
-          })}
-        </>
+                      setShuffledValues(updatedValues);
+                      setRandomThreeValues(nextThreeValues);
+                      setShownKeys(newShownKeys);
+                    }}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
       ) : (
-        <>
-          <p>Your Final 5 Most Important Value</p>
-          {shuffledValues.map((value: Value) => {
-            return (
-              <ValueCard
-                key={value.key}
-                name={value.name}
-                description={value.description}
-                colorVariant={value.colour as ColourVariant}
-                icon={value.icon}
-              />
-            );
-          })}
-        </>
+        <div className="max-w-3xl mx-auto">
+          <div className="mb-8 text-center">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              Your Top 5 Priorities
+            </h1>
+            <p className="text-gray-600">
+              These are the values that matter most to you for the next 6-12
+              months.
+            </p>
+          </div>
+          <div className="bg-white rounded-xl shadow-md overflow-hidden mb-8 p-6 min-h-[60vh] sm:min-h-[50vh]">
+            <div className="flex flex-wrap justify-center gap-6 mb-8">
+              {shuffledValues.map((value: Value) => {
+                return (
+                  <ValueCard
+                    key={value.key}
+                    name={value.name}
+                    description={value.description}
+                    colorVariant={value.colour as ColourVariant}
+                    icon={value.icon}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
       )}
-    </>
+    </div>
   );
 }

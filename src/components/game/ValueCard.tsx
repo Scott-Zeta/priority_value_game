@@ -40,7 +40,7 @@ const ValueCard: React.FC<ValueCardProps> = ({
 
   return (
     <div
-      className={`border ${borderClass} rounded-xl p-6 text-center bg-white cursor-pointer`}
+      className={`border ${borderClass} rounded-xl p-6 text-center bg-white cursor-pointer h-[18vh] sm:h-[32vh] w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] flex-grow-0 flex-shrink-0`}
       onClick={onClick}
     >
       <div className="flex items-center sm:flex-col">
