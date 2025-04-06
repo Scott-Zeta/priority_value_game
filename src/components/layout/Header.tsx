@@ -1,7 +1,7 @@
 export default function Header() {
   return (
-    <header className="mb-10">
-      <nav className="flex justify-between items-center mb-8">
+    <header className="px-4 pt-6 bg-white">
+      <nav className="flex justify-between items-center mb-8 max-w-5xl mx-auto">
         <div className="flex items-center">
           <span className="text-2xl font-bold text-blue-800">
             Priorities Value Game
