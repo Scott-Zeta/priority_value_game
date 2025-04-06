@@ -1,6 +1,6 @@
 'use client';
 
-import { valueList, Value } from '@/lib/valueList';
+import { valueList, Value } from '@/lib/valueData';
 import { useEffect, useState } from 'react';
 
 export default function GamePage() {
