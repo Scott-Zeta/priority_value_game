@@ -1,103 +1,128 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { FiInfo } from 'react-icons/fi';
+import { HiArrowRight } from 'react-icons/hi';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">How It Works</h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+          <div className="p-6">
+            <div className="flex mb-6">
+              <div className="flex items-center justify-center bg-blue-100 w-10 h-10 rounded-full p-3 mr-4 text-5xl">
+                <FiInfo className="text-blue-600" />
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                  The Challenge
+                </h2>
+                <p className="text-gray-600">
+                  This activity helps you identify your top 5 personal values or
+                  priorities for the next 6–12 months through a process of
+                  elimination.
+                </p>
+              </div>
+            </div>
+
+            <ol className="space-y-10 mt-8">
+              <li className="relative flex items-start">
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white font-medium flex-shrink-0 mr-4">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Initial Setup
+                  </h3>
+                  <p className="text-gray-600 mb-3">
+                    We start with a pool of 24 value words (like Integrity,
+                    Courage, Creativity, etc.).
+                  </p>
+                  <div className="bg-gray-50 p-3 rounded-lg flex flex-wrap gap-2">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                      Integrity
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                      Courage
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                      Creativity
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800">
+                      +21 more
+                    </span>
+                  </div>
+                </div>
+              </li>
+
+              <li className="relative flex items-start">
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white font-medium flex-shrink-0 mr-4">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Decision Rounds
+                  </h3>
+                  <p className="text-gray-600 mb-3">
+                    In each round, you&apos;ll see 3 randomly selected values.
+                    Your task is to choose the one that is
+                    <span className="font-semibold"> least important</span> to
+                    you right now.
+                  </p>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <p className="text-center text-sm text-gray-500 mb-3">
+                      Example round:
+                    </p>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="border border-gray-200 rounded-lg p-4 text-center bg-white hover:bg-gray-50">
+                        <p className="font-medium text-gray-900">Growth</p>
+                      </div>
+                      <div className="border border-gray-200 rounded-lg p-4 text-center bg-white hover:bg-gray-50">
+                        <p className="font-medium text-gray-900">Security</p>
+                      </div>
+                      <div className="border border-gray-200 rounded-lg p-4 text-center bg-white hover:bg-gray-50">
+                        <p className="font-medium text-gray-900">Freedom</p>
+                      </div>
+                    </div>
+                    <p className="text-center mt-3 text-sm text-gray-500">
+                      Select the value that is
+                      <span className="font-semibold"> least important</span> to
+                      you
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li className="relative flex items-start">
+                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white font-medium flex-shrink-0 mr-4">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Elimination Process
+                  </h3>
+                  <p className="text-gray-600 mb-3">
+                    Each time you select a value, it&apos;s removed from the
+                    pool. This continues until only 5 values remain – these are
+                    your top priorities.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="flex justify-center items-center mt-10">
+          <Link
+            href="/game"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Start the Game
+            <HiArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
