@@ -1,3 +1,10 @@
+export type Value = {
+  key: number;
+  name: string;
+  description: string;
+  colour: string;
+};
+
 export const valueList = [
   {
     key: 1,
