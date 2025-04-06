@@ -1,3 +1,5 @@
+export type ColourVariant = 'blue' | 'green' | 'purple' | 'red' | 'yellow';
+
 export type Value = {
   key: number;
   name: string;

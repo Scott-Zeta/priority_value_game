@@ -1,6 +1,7 @@
 'use client';
 
-import { valueList, Value } from '@/lib/valueData';
+import ValueCard from '@/components/game/ValueCard';
+import { valueList, Value, ColourVariant } from '@/lib/valueData';
 import { useEffect, useState } from 'react';
 
 export default function GamePage() {
@@ -55,8 +56,12 @@ export default function GamePage() {
           <p>Pick a value you think is LEAST Important</p>
           {randomThreeValues.map((value: Value) => {
             return (
-              <div
+              <ValueCard
                 key={value.key}
+                name={value.name}
+                description={value.description}
+                colorVariant={value.colour as ColourVariant}
+                icon={value.icon}
                 onClick={() => {
                   const updatedValues = removeValueFromList(
                     value,
@@ -73,11 +78,7 @@ export default function GamePage() {
                   setRandomThreeValues(nextThreeValues);
                   setShownKeys(newShownKeys);
                 }}
-                className="border-2 border-gray-300 rounded-lg p-4 m-2 cursor-pointer hover:bg-gray-100 transition duration-200 ease-in-out"
-              >
-                <h1>{value.name}</h1>
-                <p>{value.description}</p>
-              </div>
+              />
             );
           })}
         </>
@@ -86,13 +87,13 @@ export default function GamePage() {
           <p>Your Final 5 Most Important Value</p>
           {shuffledValues.map((value: Value) => {
             return (
-              <div
+              <ValueCard
                 key={value.key}
-                className="border-2 border-gray-300 rounded-lg p-4 m-2 cursor-pointer hover:bg-gray-100 transition duration-200 ease-in-out"
-              >
-                <h1>{value.name}</h1>
-                <p>{value.description}</p>
-              </div>
+                name={value.name}
+                description={value.description}
+                colorVariant={value.colour as ColourVariant}
+                icon={value.icon}
+              />
             );
           })}
         </>
