@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import ValueCard from '@/components/game/ValueCard';
+import { Button } from '@/components/ui/button';
 import { valueList, Value, ColourVariant } from '@/lib/valueData';
 import { useEffect, useState } from 'react';
 
@@ -129,6 +131,15 @@ export default function GamePage() {
                 );
               })}
             </div>
+          </div>
+          <div className="flex justify-center">
+            <Button
+              className="bg-blue-500 text-white w-full sm:w-auto"
+              size="lg"
+              asChild
+            >
+              <Link href="/">Start Over</Link>
+            </Button>
           </div>
         </div>
       )}
