@@ -2,7 +2,7 @@ export type Value = {
   key: number;
   name: string;
   description: string;
-  colour: string;
+  icon: string;
 };
 
 export const valueList = [
